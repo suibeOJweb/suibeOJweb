@@ -23,16 +23,21 @@
 <body>
     <div class="account">
         <h1>SUIBEOJ</h1>
-        <form>
+        <form method="post">
+            {% csrf_token %}
           <div class="form-group">
             <label for="exampleInputEmail1">账户名</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
           </div>
-          <button type="submit" class="btn btn-primary">登录</button>
+            <div class="row mx-md-n5">
+              <div class="col px-md-5"><button type="submit" class="btn btn-primary">登录</button></div>
+              <div class="col px-md-5"><a href="/oj/register" class="text-decoration-none">还没有账号？注册一个</a></div>
+            </div>
+
         </form>
     </div>
 </body>

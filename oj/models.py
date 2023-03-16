@@ -19,9 +19,9 @@ class Suiber(models.Model):
     nickName = models.CharField(max_length=32, verbose_name="用户昵称")
     email = models.EmailField(verbose_name="用户邮箱", null=True)
     correctNum = models.PositiveIntegerField(verbose_name="刷题量", default=0)
-    enrollmentYear = models.CharField(max_length=8, verbose_name="入学年份")
-    createTime = models.DateTimeField(verbose_name="注册时间")
-    updateTime = models.DateTimeField(verbose_name="信息更新时间")
+    enrollmentYear = models.CharField(max_length=8, verbose_name="入学年份",null=True)
+    createTime = models.DateTimeField(verbose_name="注册时间", null=True)
+    updateTime = models.DateTimeField(verbose_name="信息更新时间",null=True)
     deleted = models.BooleanField(verbose_name="用户是否注销", default=0)
 
 

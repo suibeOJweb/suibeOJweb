@@ -37,5 +37,3 @@ def register(request):
             return render(request, 'register.html', {'errMessage': errMessage})
         return render(request, 'log_in.html', {'successMessage': successMessage})
     return render(request, "register.html")
-
-

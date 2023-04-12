@@ -12,7 +12,7 @@ class Suiber(models.Model):
 
     suiberId = models.AutoField(primary_key=True)
     account = models.CharField(max_length=32, verbose_name="用户账户名")
-    password = models.UUIDField(verbose_name="用户密码")
+    password = models.CharField(max_length=32, verbose_name="用户密码")
     scores = models.IntegerField(verbose_name="积分", default=0)
     introduction = models.TextField(verbose_name="简介", default="该用户很懒……什么也没留下")
     userRole = models.SmallIntegerField(verbose_name="用户角色", default=1, choices=roles)

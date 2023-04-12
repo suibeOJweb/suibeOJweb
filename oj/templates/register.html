@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,24 +24,26 @@
 <body>
     <div class="account">
         <h1>SUIBEOJ</h1>
-        <form method="post">
+        <form method="post" id="register-form" action="">
             {% csrf_token %}
           <div class="form-group">
             <label for="exampleInputEmail1">账户名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount" required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password" required>
           </div>
             <div class="form-group">
             <label for="exampleInputPassword1">校验码</label>
-            <input type="checkPassword" class="form-control" id="exampleInputPassword1" placeholder="请再次输入密码" name="checkPassword">
+            <input type="password" required class="form-control" id="exampleInputPassword1" placeholder="请再次输入密码" name="checkPassword">
           </div>
             <div class="row mx-md-n5">
-              <div class="col px-md-5"><button type="submit" class="btn btn-primary">确认</button></div>
+              <div class="col px-md-5"><button type="submit" class="btn btn-primary" id="submit-button">确认</button></div>
             </div>
         </form>
+        <div>{{ errMessage }}</div>
     </div>
+<script src="{% static 'js/register.js'%}"></script>
 </body>
 </html>

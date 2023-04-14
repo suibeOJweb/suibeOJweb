@@ -13,10 +13,31 @@
             margin-right: auto;
             margin-top: 200px;
             padding: 20px 40px;
+            border-radius: 20px;
 
+            box-shadow:  0 0 10px #888888;
         }
         .account h1{
             text-align: center;
+        }
+
+        .btn-primary {
+            width: 100%;
+            text-align: center;
+            background-color: #66afe9;
+            border-color: #66afe9;
+
+            font-size: 15px;
+        }
+
+
+        #register{
+            margin-top: 10px;
+            margin-left: 275px;
+        }
+
+        .text-decoration-none {
+            color: #afbbbc;
         }
     </style>
 </head>
@@ -27,15 +48,17 @@
             {% csrf_token %}
           <div class="form-group">
             <label for="exampleInputEmail1">账户名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount" required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password" required>
           </div>
-            <div class="row mx-md-n5">
+                <div class="row mx-md-n5">
               <div class="col px-md-5"><button type="submit" class="btn btn-primary">登录</button></div>
-              <div class="col px-md-5"><a href="/oj/register" class="text-decoration-none">还没有账号？注册一个</a></div>
+            </div>
+                <div class="row mx-md-n5">
+              <div class="col px-md-5" id="register"><a href="/oj/register"  class="text-decoration-none">注册</a></div>
             </div>
         </form>
         <script>

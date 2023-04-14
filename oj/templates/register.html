@@ -8,16 +8,37 @@
         .account {
             width: 400px;
             border: 1px solid #dddddd;
-            height: 400px;
+            height: 440px;
 
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
             padding: 20px 40px;
+            border-radius: 20px;
+
+            box-shadow:  0 0 10px #888888;
 
         }
         .account h1{
             text-align: center;
+        }
+
+        .btn-primary {
+            width: 100%;
+            text-align: center;
+            background-color: #66afe9;
+            border-color: #66afe9;
+
+            font-size: 15px;
+        }
+
+        #login{
+            margin-top: 10px;
+            margin-left: 275px;
+        }
+
+        .text-decoration-none {
+            color: #afbbbc;
         }
     </style>
 </head>
@@ -40,6 +61,9 @@
           </div>
             <div class="row mx-md-n5">
               <div class="col px-md-5"><button type="submit" class="btn btn-primary" id="submit-button">确认</button></div>
+            </div>
+            <div class="row mx-md-n5">
+              <div class="col px-md-5" id="login"><a href="/oj/login"  class="text-decoration-none">登录</a></div>
             </div>
         </form>
         <div>{{ errMessage }}</div>

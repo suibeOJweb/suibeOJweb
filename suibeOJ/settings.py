@@ -128,3 +128,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 配置文件存储目录
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# 配置浏览器访问文件的地址：http://127.0.0.1:8000/media/...
+MEDIA_URL = '/media/'
+# 以上表示浏览器传来的url以media开头的，django统一到MEDIA_ROOT配置的目录下去找

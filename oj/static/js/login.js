@@ -1,10 +1,14 @@
 "use strict";
 
-window.onload = registerOnload;
+window.onload = loginOnload;
 
 
-function registerOnload() {
+function loginOnload() {
+    const successMsg = document.getElementById("successMsg");
     const errMsg = document.getElementById("errMsg");
+    if (successMsg) {
+        setTimeout(hideEle, 1000, successMsg);
+    }
     if (errMsg) {
         setTimeout(hideEle, 1000, errMsg);
     }
@@ -13,4 +17,3 @@ function registerOnload() {
 function hideEle(e) {
     e.classList.add('fadeOut');
 }
-

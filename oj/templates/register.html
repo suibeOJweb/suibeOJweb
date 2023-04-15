@@ -40,9 +40,28 @@
         .text-decoration-none {
             color: #afbbbc;
         }
+
+        .alert-danger{
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            left: 50%;
+            top: 20px;
+            transform: translate(-50%);
+        }
+
+        .fadeOut {
+            opacity: 0;
+            transition: opacity 2s;
+        }
     </style>
 </head>
 <body>
+    {% if errMessage %}
+        <div class="alert alert-danger" role="alert" id="errMsg">
+            {{ errMessage }}
+        </div>
+    {% endif %}
     <div class="account">
         <h1>SUIBEOJ</h1>
         <form method="post" id="register-form" action="">
@@ -66,7 +85,6 @@
               <div class="col px-md-5" id="login"><a href="/oj/login"  class="text-decoration-none">登录</a></div>
             </div>
         </form>
-        <div>{{ errMessage }}</div>
     </div>
 <script src="{% static 'js/register.js'%}"></script>
 </body>

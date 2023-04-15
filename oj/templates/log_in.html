@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
 
             margin-left: auto;
             margin-right: auto;
-            margin-top: 200px;
+            margin-top: 180px;
             padding: 20px 40px;
             border-radius: 20px;
 
@@ -39,9 +40,42 @@
         .text-decoration-none {
             color: #afbbbc;
         }
+
+        .alert-primary{
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            left: 50%;
+            top: 20px;
+            transform: translate(-50%);
+        }
+
+        .alert-danger{
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            left: 50%;
+            top: 20px;
+            transform: translate(-50%);
+        }
+
+        .fadeOut {
+            opacity: 0;
+            transition: opacity 2s;
+        }
     </style>
 </head>
 <body>
+    {% if successMessage %}
+        <div class="alert alert-primary" role="alert" id="successMsg">
+            {{ successMessage }}
+        </div>
+    {% endif %}
+    {% if errMessage %}
+        <div class="alert alert-danger" role="alert" id="errMsg">
+            {{ errMessage }}
+        </div>
+    {% endif %}
     <div class="account">
         <h1>SUIBEOJ</h1>
         <form method="post" action="">
@@ -61,7 +95,7 @@
               <div class="col px-md-5" id="register"><a href="/oj/register"  class="text-decoration-none">注册</a></div>
             </div>
         </form>
-        <script>
+        <script src="{% static 'js/login.js' %}">
 
         </script>
     </div>

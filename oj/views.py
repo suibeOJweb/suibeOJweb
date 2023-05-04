@@ -4,7 +4,8 @@ from oj import models
 
 
 def index(request):
-    return render(request, "index.html")
+    data = models.Question.objects.all()
+    return render(request, "index.html", locals())
 
 
 def login(request):
@@ -20,7 +21,9 @@ def login(request):
                 return render(request , 'index.html' , {
                     'userRole': userinfo.roles,
                     'nickName': userinfo.nickName,
-                    'successfulMessage' : successfulMessage
+                    'avatarUrl': userinfo.avatarUrl,
+                    'successfulMessage' : successfulMessage,
+                    'suiberId': userinfo.suiberId
                 })
             else:
                 return render(request, 'log_in.html', {'errMessage': errMessage})
@@ -41,7 +44,7 @@ def register(request):
         userinfo = models.Suiber.objects.filter(account = userAccount)
         if userinfo.exists():
             return render(request , 'register.html' , {'errMessage': userExistMessage})
-        # 校验密码
+        # 校验密码.
         if password == checkPassword :
             models.Suiber.objects.create(
                 account=userAccount,
@@ -52,3 +55,7 @@ def register(request):
             return render(request, 'register.html', {'errMessage': registerErrMessage})
         return render(request, 'log_in.html', {'successMessage': successMessage})
     return render(request, "register.html")
+
+def userCenter(request,id):
+    data = models.Suiber.objects.get(suiberId=id)
+    return render(request,'userCenter.html',locals())

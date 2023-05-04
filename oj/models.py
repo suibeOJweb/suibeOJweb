@@ -23,7 +23,7 @@ class Suiber(models.Model):
     createTime = models.DateTimeField(verbose_name="注册时间", null=True)
     updateTime = models.DateTimeField(verbose_name="信息更新时间",null=True)
     deleted = models.BooleanField(verbose_name="用户是否注销", default=0)
-
+    avatarUrl = models.CharField(max_length=64, verbose_name="头像url" , default= "/media/defaul.jpg")
 
 class Score(models.Model):
     scoreId = models.BigAutoField(primary_key=True)
@@ -31,3 +31,12 @@ class Score(models.Model):
     reason = models.TextField(verbose_name="积分更改原因")
     suiberId = models.ForeignKey("Suiber", to_field="suiberId", on_delete=models.CASCADE, db_column="suiberId")
     createTime = models.DateTimeField(verbose_name="积分更改时间")
+
+class Question(models.Model):
+    questionId = models.AutoField(primary_key = True)
+    questionTitle = models.CharField(max_length=32 , verbose_name= "问题标题")
+    questionContent = models.CharField(max_length=32 , verbose_name= "问题内容")
+    difficulty = models.CharField(max_length=8, verbose_name= "难度")
+    limits = models.CharField(max_length=12, verbose_name= "限制")
+    totalPass = models.IntegerField(verbose_name="总通过数", default=0)
+    totalTry = models.IntegerField(verbose_name="总尝试数", default=0)

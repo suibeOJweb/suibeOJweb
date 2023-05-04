@@ -16,11 +16,7 @@
 <style>
 
     body {
-        background-image: url('https://k.sinaimg.cn/n/default/transform/300/w550h550/20201130/9169-kentcvy6224735.jpg/w700h350z1l10t10705.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-size: 100% 100%
+        background-image: url("/media/background.png");
     }
 
     .back {
@@ -38,10 +34,15 @@
             transform: translate(-50%);
         }
 
+    .questionContainer{
+
+    }
+
         .fadeOut {
             opacity: 0;
             transition: opacity 2s;
         }
+
 </style>
 
 
@@ -77,94 +78,32 @@
                 <li class="nav-item active" style="width: 75px;">
                     <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
                 </li>
-
-                <div class="dropdown">
+            </ul>
+        </div>
+    {% if suiberId %}
+       <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                        aria-expanded="false">
                         更多
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">个人信息</a>
+                        <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
                         <a class="dropdown-item" href="#">主页</a>
                         <a class="dropdown-item" href="#">退出登录</a>
                     </div>
                 </div>
-            </ul>
-        </div>
-
+    {% else %}
         <a href="/oj/login">
             <button type="button" class="btn btn-success">
                 登录
             </button>
         </a>
-
+    {% endif %}
     </div>
 </nav>
+    <div class="questionContainer">
 
-{#test card#}
-<br>
-<br>
-<div class="container">
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-                哥们名叫理塘顶针
-            </p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
     </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-    <div class="card text center text-white bg-dark mb-4" style="center;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
-</div>
-
 <!-- 要用bootstrap的js插件需要这下面两个 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

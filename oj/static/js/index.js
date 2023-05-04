@@ -3,6 +3,7 @@
 window.onload = indexOnload;
 
 
+
 function indexOnload() {
     const successMsg = document.getElementById("successMsg");
     if (successMsg) {

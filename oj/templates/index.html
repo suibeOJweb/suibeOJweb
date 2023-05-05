@@ -25,23 +25,37 @@
     }
 
     .alert-primary{
-            position: absolute;
-            width: 20%;
-            text-align: center;
-            left: 50%;
-            top: 20px;
-            z-index: 10;
-            transform: translate(-50%);
-        }
-
-    .questionContainer{
-
+        position: absolute;
+        width: 20%;
+        text-align: center;
+        left: 50%;
+        top: 20px;
+        z-index: 10;
+        transform: translate(-50%);
     }
 
-        .fadeOut {
-            opacity: 0;
-            transition: opacity 2s;
+    .questionContainer{
+        position: relative;
+        text-align: center;
+        background: #444;
+    }
+
+    .questionContainer .mytitile {
+        position: relative;
+        height: 100px;
+    }
+
+    .fadeOut {
+        opacity: 0;
+        transition: opacity 2s;
+    }
+
+    @media (min-width: 1024px) {
+        .questionContainer div {
+            width: 80%;
+            left: 10%;
         }
+    }
 
 </style>
 
@@ -52,57 +66,62 @@
             {{ successfulMessage }}
         </div>
     {% endif %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#" style="width: 100px;">SuibeOJ</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active" style="width: 75px;">
-                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" style="width: 75px;">
-                    <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" style="width: 75px;">
-                    <a class="nav-link" href="#">题库 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" style="width: 75px;">
-                    <a class="nav-link" href="#">竞赛 <span class="sr-only">(current)</span></a>
-                </li>
-
-                <li class="nav-item active" style="width: 75px;">
-                    <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
-    {% if suiberId %}
-       <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                       aria-expanded="false">
-                        更多
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
-                        <a class="dropdown-item" href="#">主页</a>
-                        <a class="dropdown-item" href="#">退出登录</a>
-                    </div>
-                </div>
-    {% else %}
-        <a href="/oj/login">
-            <button type="button" class="btn btn-success">
-                登录
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="width: 100px;">SuibeOJ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </a>
-    {% endif %}
-    </div>
-</nav>
-    <div class="questionContainer">
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">题库 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">竞赛 <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        {% if suiberId %}
+           <div class="dropdown">
+               <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                  aria-expanded="false">
+                   更多
+               </a>
+               <div class="dropdown-menu">
+                   <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
+                   <a class="dropdown-item" href="#">主页</a>
+                   <a class="dropdown-item" href="#">退出登录</a>
+               </div>
+           </div>
+        {% else %}
+            <a href="/oj/login">
+                <button type="button" class="btn btn-success">
+                    登录
+                </button>
+            </a>
+        {% endif %}
+        </div>
+    </nav>
+    <div class="questionContainer">
+        <div class="mytitile">
+            title
+        </div>
+        <div>
+
+        </div>
     </div>
 <!-- 要用bootstrap的js插件需要这下面两个 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

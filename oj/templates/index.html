@@ -37,12 +37,21 @@
     .questionContainer{
         position: relative;
         text-align: center;
-        background: #444;
+        width: 1000px;
+        margin-left: 250px;
+        margin-top: 100px;
+        background: #ffffff;
     }
 
     .questionContainer .mytitile {
         position: relative;
         height: 100px;
+    }
+
+    .table-striped{
+        position: absolute;
+        background-color: white;
+        margin: auto;
     }
 
     .fadeOut {
@@ -120,7 +129,25 @@
             title
         </div>
         <div>
-
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">标题</th>
+                <th scope="col">通过率</th>
+                <th scope="col">难度</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data %}
+                    <tr>
+                    <th scope="row">{{ item.questionId }}</th>
+                    <td>{{ item.questionTitle }}</td>
+                    <td>62.49%</td>
+                    <td>{{ item.difficulty }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 <!-- 要用bootstrap的js插件需要这下面两个 -->

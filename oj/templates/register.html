@@ -1,0 +1,91 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            height: 440px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding: 20px 40px;
+            border-radius: 20px;
+
+            box-shadow:  0 0 10px #888888;
+
+        }
+        .account h1{
+            text-align: center;
+        }
+
+        .btn-primary {
+            width: 100%;
+            text-align: center;
+            background-color: #66afe9;
+            border-color: #66afe9;
+
+            font-size: 15px;
+        }
+
+        #login{
+            margin-top: 10px;
+            margin-left: 275px;
+        }
+
+        .text-decoration-none {
+            color: #afbbbc;
+        }
+
+        .alert-danger{
+            position: absolute;
+            width: 20%;
+            text-align: center;
+            left: 50%;
+            top: 20px;
+            transform: translate(-50%);
+        }
+
+        .fadeOut {
+            opacity: 0;
+            transition: opacity 2s;
+        }
+    </style>
+</head>
+<body>
+    {% if errMessage %}
+        <div class="alert alert-danger" role="alert" id="errMsg">
+            {{ errMessage }}
+        </div>
+    {% endif %}
+    <div class="account">
+        <h1>SUIBEOJ</h1>
+        <form method="post" id="register-form" action="">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">账户名</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password" required>
+          </div>
+            <div class="form-group">
+            <label for="exampleInputPassword1">校验码</label>
+            <input type="password" required class="form-control" id="exampleInputPassword1" placeholder="请再次输入密码" name="checkPassword">
+          </div>
+            <div class="row mx-md-n5">
+              <div class="col px-md-5"><button type="submit" class="btn btn-primary" id="submit-button">确认</button></div>
+            </div>
+            <div class="row mx-md-n5">
+              <div class="col px-md-5" id="login"><a href="/oj/login"  class="text-decoration-none">登录</a></div>
+            </div>
+        </form>
+    </div>
+<script src="{% static 'js/register.js'%}"></script>
+</body>
+</html>

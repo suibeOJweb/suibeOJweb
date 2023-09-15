@@ -43,6 +43,10 @@ class Migration(migrations.Migration):
                 ("createTime", models.DateTimeField(verbose_name="注册时间")),
                 ("updateTime", models.DateTimeField(verbose_name="信息更新时间")),
                 ("deleted", models.BooleanField(default=0, verbose_name="用户是否注销")),
+                (
+                    "avatarUrl",
+                    models.CharField(max_length=64,verbose_name="头像url", default="/media/default.jpg")
+                )
             ],
         ),
         migrations.CreateModel(

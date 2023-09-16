@@ -12,4 +12,5 @@ def index(request):
 
 def user_logout(request):
     logout(request)
-    return render(request, "index.html")
+    successfulMessage = "退出成功"
+    return render(request, "index.html",{'successfulMessage' : successfulMessage})

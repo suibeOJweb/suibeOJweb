@@ -34,6 +34,15 @@
         transform: translate(-50%);
     }
 
+
+    .avatar{
+        width: 10%;
+        height: 10%;
+        display: inline;
+        float: right;
+        margin-right: 10px;
+    }
+
     .questionContainer{
         position: relative;
         text-align: center;
@@ -104,6 +113,7 @@
                 </ul>
             </div>
         {% if suiberId %}
+            <div class="avatarContainer"><img src = "{{ avatarUrl }}" class="rounded-circle avatar"></div>
            <div class="dropdown">
                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                   aria-expanded="false">

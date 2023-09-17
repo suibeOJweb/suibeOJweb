@@ -88,7 +88,7 @@
         <div class="container">
             <div class="navbar-brand-wrapper" style="margin-right: 3px;">
                 <a class="navbar-brand" href="#" style="width: 100px;">
-                    <img src="Image/Title_4.png" alt="SuibeOJ" style="width: 85px; height: 25px">
+                    <img src="/media/Title_4.png" style="width: 85px; height: 25px">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -157,7 +157,7 @@
                     <tr>
                     <th scope="row">{{ item.questionId }}</th>
                     <td>{{ item.questionTitle }}</td>
-                    <td>62.49%</td>
+                    <td>{{ item.passRate }} </td>
                     <td>{{ item.difficulty }}</td>
                     </tr>
                 {% endfor %}

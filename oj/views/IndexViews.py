@@ -7,6 +7,7 @@ from django.contrib.auth import logout
 
 def index(request):
     data = models.Question.objects.all()
+
     return render(request, "index.html", locals())
 
 

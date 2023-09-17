@@ -8,7 +8,7 @@
         .account {
             width: 400px;
             border: 1px solid #dddddd;
-            height: 350px;
+            height: 300px;
 
             margin-left: auto;
             margin-right: auto;
@@ -63,6 +63,13 @@
             opacity: 0;
             transition: opacity 2s;
         }
+
+        .logo{
+            width: 85px;
+            height: 25px;
+            display: inline-block;
+            float: right;
+        }
     </style>
 </head>
 <body>
@@ -77,7 +84,7 @@
         </div>
     {% endif %}
     <div class="account">
-        <h1>SUIBEOJ</h1>
+        <div><img class="logo" src="/media/Title_3.png"></div>
         <form method="post" action="/oj/login/">
             {% csrf_token %}
           <div class="form-group">

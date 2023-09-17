@@ -1,4 +1,5 @@
 {% load static %}
+{% load common_custom %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -157,7 +158,7 @@
                     <tr>
                     <th scope="row">{{ item.questionId }}</th>
                     <td>{{ item.questionTitle }}</td>
-                    <td>{{ item.passRate }} </td>
+                    <td>{{ item.totalPass|div:item.totalTry }}%</td>
                     <td>{{ item.difficulty }}</td>
                     </tr>
                 {% endfor %}

@@ -88,7 +88,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-brand-wrapper" style="margin-right: 3px;">
-                <a class="navbar-brand" href="#" style="width: 100px;">
+                <a class="navbar-brand" href="/oj" style="width: 100px;">
                     <img src="/media/Title_4.png" style="width: 85px; height: 25px">
                 </a>
             </div>
@@ -100,7 +100,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/oj">首页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active" style="width: 75px;">
                         <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
@@ -157,7 +157,7 @@
                 {% for item in data %}
                     <tr>
                     <th scope="row">{{ item.questionId }}</th>
-                    <td>{{ item.questionTitle }}</td>
+                        <td><a href="/oj/questionDetail/{{ item.questionId }}" style="color: black">{{ item.questionTitle }}</a></td>
                     <td>{{ item.totalPass|div:item.totalTry }}%</td>
                     <td>{{ item.difficulty }}</td>
                     </tr>

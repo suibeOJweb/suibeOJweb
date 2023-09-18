@@ -11,12 +11,14 @@ def login(request):
         userinfo = models.Suiber.objects.get(account= userAccount)
         if userinfo :
             if password == userinfo.password:
+                data = models.Question.objects.all()
                 return render(request , 'index.html' , {
                     'userRole': userinfo.roles,
                     'nickName': userinfo.nickName,
                     'avatarUrl': userinfo.avatarUrl,
                     'successfulMessage' : successfulMessage,
-                    'suiberId': userinfo.suiberId
+                    'suiberId': userinfo.suiberId,
+                    'data' : data
                 })
             else:
                 return render(request, 'log_in.html', {'errMessage': errMessage})

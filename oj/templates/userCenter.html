@@ -3,37 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<title>个人中心页</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<style>
-    .fakeimg {
-        height: 220px;
-        width: 220px;
-        margin: 20px auto;
-         background: #aaa;
-    }
-    .avatar {
-        width: 100%;
-        height: 100%;
-    }
-
-
-    .col-sm-4 {
-        background-color: #ffffff;
-        margin-top: 100px;
-        width: 250px;
-        height: 500px;
-        margin-right: 100px;
-    }
 
     body {
         background-image: url("/media/background.png");
     }
 
-    .nkname{
-        font-size: 18px;
-        font-weight: 700;
+
+    .back {
+        background: #636060;
         text-align: center;
     }
 
@@ -41,16 +25,60 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="fakeimg"><img src="/media/defaul.jpg" class="avatar"></div>
-        <hr />
-      <h3 class="nkname">{{ data.nickName }}</h3>
-      <hr class="hidden-sm hidden-md hidden-lg">
-    </div>
-  </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-brand-wrapper" style="margin-right: 3px;">
+                <a class="navbar-brand" href="/oj" style="width: 100px;">
+                    <img src="/media/Title_4.png" style="width: 85px; height: 25px">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="/oj">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">题库 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">竞赛 <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active" style="width: 75px;">
+                        <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        {% if suiberId %}
+            <div class="avatarContainer"><img src = "{{ avatarUrl }}" class="rounded-circle avatar"></div>
+           <div class="dropdown">
+               <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                  aria-expanded="false">
+                   更多
+               </a>
+               <div class="dropdown-menu">
+                   <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
+                   <a class="dropdown-item" href="#">主页</a>
+                   <a class="dropdown-item" href="/oj/logout">退出登录</a>
+               </div>
+           </div>
+        {% else %}
+            <a href="/oj/login">
+                <button type="button" class="btn btn-success">
+                    登录
+                </button>
+            </a>
+        {% endif %}
+        </div>
+    </nav>
 
 </body>
 </html>

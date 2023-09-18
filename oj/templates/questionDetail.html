@@ -1,86 +1,39 @@
 {% load static %}
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>登录</title>
+	<meta charset="utf-8">
+	<title>题目详情页</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap 的 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        .account {
-            width: 400px;
-            border: 1px solid #dddddd;
-            height: 300px;
 
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 180px;
-            padding: 20px 40px;
-            border-radius: 20px;
-            background-color: white;
-
-            box-shadow:  0 0 10px #888888;
-        }
-
-        body {
+    body {
         background-image: url("/media/background.png");
-        }
-        .account h1{
-            text-align: center;
-        }
-
-        .btn-primary {
-            width: 100%;
-            text-align: center;
-            background-color: #66afe9;
-            border-color: #66afe9;
-
-            font-size: 15px;
-        }
+    }
 
 
-        #register{
-            margin-top: 10px;
-            margin-left: 275px;
-        }
+    .back {
+        background: #636060;
+        text-align: center;
+    }
 
-        .text-decoration-none {
-            color: #afbbbc;
-        }
+    .questionCard{
+        position: relative;
+        text-align: center;
+        width: 1000px;
+        height: 500px;
+        margin-left: 150px;
+        margin-top: 50px;
+        background: #ffffff;
+    }
 
-        .alert-primary{
-            position: absolute;
-            width: 20%;
-            text-align: center;
-            left: 50%;
-            top: 20px;
-            transform: translate(-50%);
-        }
-
-        .alert-danger{
-            position: absolute;
-            width: 20%;
-            text-align: center;
-            left: 50%;
-            top: 20px;
-            transform: translate(-50%);
-        }
-
-        .fadeOut {
-            opacity: 0;
-            transition: opacity 2s;
-        }
-
-        .logo{
-            width: 85px;
-            height: 25px;
-            display: inline-block;
-            float: right;
-        }
-    </style>
+  </style>
 </head>
 <body>
 
@@ -138,38 +91,16 @@
         {% endif %}
         </div>
     </nav>
-    {% if successMessage %}
-        <div class="alert alert-primary" role="alert" id="successMsg">
-            {{ successMessage }}
-        </div>
-    {% endif %}
-    {% if errMessage %}
-        <div class="alert alert-danger" role="alert" id="errMsg">
-            {{ errMessage }}
-        </div>
-    {% endif %}
-    <div class="account">
-        <div><img class="logo" src="/media/Title_3.png"></div>
-        <form method="post" action="/oj/login/">
-            {% csrf_token %}
-          <div class="form-group">
-            <label for="exampleInputEmail1">账户名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="userAccount" required>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password" required>
-          </div>
-                <div class="row mx-md-n5">
-              <div class="col px-md-5"><button type="submit" class="btn btn-primary">登录</button></div>
-            </div>
-                <div class="row mx-md-n5">
-              <div class="col px-md-5" id="register"><a href="/oj/register"  class="text-decoration-none">注册</a></div>
-            </div>
-        </form>
-        <script src="{% static 'js/login.js' %}">
 
-        </script>
-    </div>
+    <div class="questionCard" >
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <div id="markdown-content"></div>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
 </body>
 </html>

@@ -42,3 +42,4 @@ class Question(models.Model):
     totalTry = models.IntegerField(verbose_name="总尝试数", default=0)
     createTime = models.DateTimeField(verbose_name="问题创建时间")
 
+

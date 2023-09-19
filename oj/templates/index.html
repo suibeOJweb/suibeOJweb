@@ -25,7 +25,7 @@
         text-align: center;
     }
 
-    .alert-primary{
+    .alert-primary {
         position: absolute;
         width: 20%;
         text-align: center;
@@ -36,7 +36,7 @@
     }
 
 
-    .avatar{
+    .avatar {
         width: 10%;
         height: 10%;
         display: inline;
@@ -44,12 +44,11 @@
         margin-right: 10px;
     }
 
-    .questionContainer{
+    .questionContainer {
         position: relative;
         text-align: center;
         width: 1000px;
-        margin-left: 250px;
-        margin-top: 100px;
+        margin: 100px auto 0 auto;
         background: #ffffff;
     }
 
@@ -58,7 +57,7 @@
         height: 100px;
     }
 
-    .table-striped{
+    .table-striped {
         position: absolute;
         background-color: white;
         margin: auto;
@@ -80,56 +79,56 @@
 
 
 <body>
-    {% if successfulMessage %}
-        <div class="alert alert-primary" role="alert" id="successMsg">
-            {{ successfulMessage }}
+{% if successfulMessage %}
+    <div class="alert alert-primary" role="alert" id="successMsg">
+        {{ successfulMessage }}
+    </div>
+{% endif %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-brand-wrapper" style="margin-right: 3px;">
+            <a class="navbar-brand" href="/oj" style="width: 100px;">
+                <img src="/media/Title_4.png" style="width: 85px; height: 25px">
+            </a>
         </div>
-    {% endif %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <div class="navbar-brand-wrapper" style="margin-right: 3px;">
-                <a class="navbar-brand" href="/oj" style="width: 100px;">
-                    <img src="/media/Title_4.png" style="width: 85px; height: 25px">
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="/oj">首页 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="#">题库 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="#">竞赛 <span class="sr-only">(current)</span></a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" style="width: 75px;">
+                    <a class="nav-link" href="/oj">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" style="width: 75px;">
+                    <a class="nav-link" href="#">活动 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" style="width: 75px;">
+                    <a class="nav-link" href="#">题库 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" style="width: 75px;">
+                    <a class="nav-link" href="#">竞赛 <span class="sr-only">(current)</span></a>
+                </li>
 
-                    <li class="nav-item active" style="width: 75px;">
-                        <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
+                <li class="nav-item active" style="width: 75px;">
+                    <a class="nav-link" href="#">应用 <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
         {% if suiberId %}
-            <div class="avatarContainer"><img src = "{{ avatarUrl }}" class="rounded-circle avatar"></div>
-           <div class="dropdown">
-               <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                  aria-expanded="false">
-                   更多
-               </a>
-               <div class="dropdown-menu">
-                   <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
-                   <a class="dropdown-item" href="#">主页</a>
-                   <a class="dropdown-item" href="/oj/logout">退出登录</a>
-               </div>
-           </div>
+            <div class="avatarContainer"><img src="{{ avatarUrl }}" class="rounded-circle avatar"></div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                   aria-expanded="false">
+                    更多
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/oj/userCenter/{{ suiberId }}">个人信息</a>
+                    <a class="dropdown-item" href="#">主页</a>
+                    <a class="dropdown-item" href="/oj/logout">退出登录</a>
+                </div>
+            </div>
         {% else %}
             <a href="/oj/login">
                 <button type="button" class="btn btn-success">
@@ -137,34 +136,35 @@
                 </button>
             </a>
         {% endif %}
-        </div>
-    </nav>
-    <div class="questionContainer">
-        <div class="mytitile">
-            题库
-        </div>
-        <div>
-            <table class="table table-striped">
-                <thead>
-                <tr>
+    </div>
+</nav>
+<div class="questionContainer">
+    <div class="mytitile">
+        题库
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
                 <th scope="col">#</th>
                 <th scope="col">标题</th>
                 <th scope="col">通过率</th>
                 <th scope="col">难度</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in data %}
-                    <tr>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in data %}
+                <tr>
                     <th scope="row">{{ item.questionId }}</th>
-                        <td><a href="/oj/questionDetail/{{ item.questionId }}" style="color: black">{{ item.questionTitle }}</a></td>
+                    <td><a href="/oj/questionDetail/{{ item.questionId }}"
+                           style="color: black">{{ item.questionTitle }}</a></td>
                     <td>{{ item.totalPass|div:item.totalTry }}%</td>
                     <td>{{ item.difficulty }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+</div>
 <!-- 要用bootstrap的js插件需要这下面两个 -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -172,6 +172,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
-<script src="{% static 'js/index.js'%}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

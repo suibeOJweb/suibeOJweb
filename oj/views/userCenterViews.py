@@ -4,4 +4,4 @@ from oj import models
 
 def userCenter(request,id):
     data = models.Suiber.objects.get(suiberId=id)
-    return render(request,'userCenter.html',locals())
+    return render(request,'userCenter.html',{'data':data,'suiberId':data.suiberId})

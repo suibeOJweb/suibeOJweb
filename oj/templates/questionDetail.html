@@ -10,7 +10,8 @@
     <!-- Bootstrap 的 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/mdeditor/css/markdown_emacs.css">
+
     <style>
 
     body {
@@ -26,11 +27,27 @@
     .questionCard{
         position: relative;
         text-align: center;
-        width: 1000px;
+        width: 1200px;
         height: 500px;
         margin-left: 150px;
         margin-top: 50px;
         background: #ffffff;
+    }
+
+    .avatar{
+        width: 10%;
+        height: 10%;
+        display: inline;
+        float: right;
+        margin-right: 10px;
+    }
+
+    .card-body {
+        text-align: left;
+    }
+
+    #contain1 {
+        margin-top: 20px;
     }
 
   </style>
@@ -94,13 +111,64 @@
 
     <div class="questionCard" >
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <div id="markdown-content"></div>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+    <h5 class="card-title">{{ questionTitle }}</h5>
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+        </li>
+     </ul>
+
+      <div class="container" id="contain1">
+          <div class="row">
+              <div class="col-sm-8">
+                  <div> {{ questionContent | safe }} </div>
+                <div style="font-weight: bold;">输入格式</div>
+                <div>{{ question.questionInput }}</div>
+                <div style="font-weight: bold;">输出格式</div>
+                <div>{{ question.questionOutput }}</div>
+                <div style="font-weight: bold;">数据范围</div>
+                <div>{{ question.dataLimits }}</div>
+                <div style="font-weight: bold;">样例输入</div>
+                <div>{{ example.exampleInput }}</div>
+                <div style="font-weight: bold;">样例输出</div>
+                <div>{{ example.exampleOutput }}</div>
+              </div>
+              <div class="col-sm-4">
+                  <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="font-weight: normal;">难度:</th>
+                            <td>{{ question.difficulty }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-weight: normal;">时/空限制:</th>
+                            <td>{{ question.limits }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-weight: normal;">总通过数:</th>
+                            <td>{{ question.totalTry }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-weight: normal;">总尝试数:</th>
+                            <td>{{ question.totalPass }}</td>
+                        </tr>
+                    </table>
+              </div>
+          </div>
+      </div>
+
 </div>
+  </div>
 
 </body>
 </html>

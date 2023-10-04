@@ -36,10 +36,18 @@ class Question(models.Model):
     questionId = models.AutoField(primary_key = True)
     questionTitle = models.TextField(verbose_name= "问题标题")
     questionContent = models.TextField(verbose_name= "问题内容")
+    questionInput = models.TextField(verbose_name="输入格式")
+    questionOutput = models.TextField(verbose_name="输出格式")
+    dataLimits = models.CharField(max_length=16,verbose_name="数据格式")
     difficulty = models.CharField(max_length=8, verbose_name= "难度")
     limits = models.CharField(max_length=12, verbose_name= "限制")
     totalPass = models.IntegerField(verbose_name="总通过数", default=0)
     totalTry = models.IntegerField(verbose_name="总尝试数", default=0)
     createTime = models.DateTimeField(verbose_name="问题创建时间")
 
-
+class Example(models.Model):
+    exampleId = models.AutoField(primary_key = True)
+    exampleInput = models.TextField(verbose_name="样例输入")
+    exampleOutput = models.TextField(verbose_name="样例输出")
+    questionId = models.ForeignKey("Question",to_field="questionId",on_delete=models.CASCADE,db_column="questionId")
+    createTime = models.DateTimeField(verbose_name="创建时间")

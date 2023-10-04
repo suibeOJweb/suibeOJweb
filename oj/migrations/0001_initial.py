@@ -72,6 +72,9 @@ class Migration(migrations.Migration):
                 ("questionId", models.BigAutoField(primary_key = True, serialize = False)),
                 ("questionTitle", models.TextField(verbose_name="问题标题")),
                 ("questionContent", models.TextField(verbose_name="问题内容")),
+                ("questionInput", models.TextField(verbose_name= "输入格式")),
+                ("questionOutput", models.TextField(verbose_name="输出格式")),
+                ("dataLimits", models.CharField(max_length=16,verbose_name="数据格式")),
                 ("difficulty", models.CharField(max_length=8,verbose_name="难度")),
                 ("limits", models.CharField(max_length=12,verbose_name="限制")),
                 ("totalPass",models.IntegerField(verbose_name="总通过数",default=0)),
@@ -79,4 +82,21 @@ class Migration(migrations.Migration):
                 ("createTime",models.DateTimeField(verbose_name="问题创建时间"))
             ]
         ),
+        migrations.CreateModel(
+            name="Example",
+            fields=[
+                ("exampleId", models.BigAutoField(primary_key = True, serialize = False)),
+                ("exampleInput", models.TextField(verbose_name="样例输入")),
+                ("exampleOutput", models.TextField(verbose_name="样例输出")),
+                (
+                    "questionId",
+                    models.ForeignKey(
+                        db_column="questionId",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="oj.question",
+                    ),
+                ),
+                ("createTime",models.DateTimeField(verbose_name="样例创建时间"))
+            ]
+        )
     ]

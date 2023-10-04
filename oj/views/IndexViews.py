@@ -14,4 +14,6 @@ def index(request):
 def user_logout(request):
     logout(request)
     successfulMessage = "退出成功"
-    return render(request, "index.html",{'successfulMessage' : successfulMessage})
+    data = models.Question.objects.all()
+    return render(request, "index.html",{'successfulMessage' : successfulMessage,
+                                         'data' : data})
